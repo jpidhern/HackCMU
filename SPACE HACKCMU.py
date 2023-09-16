@@ -504,7 +504,7 @@ def calculate(app):
         nScore = 1 
     elif Fn<(minForce+2*intervalForce):  
         nScore = 2
-    elif Fn<maxForce:  
+    elif Fn<(maxForce):  
         nScore = 3 
     else:
         nScore = 0
@@ -520,7 +520,7 @@ def calculate(app):
     elif nScore == 3:
         witty = "Star-crossed lovers!"
     else:
-        witty == "robust"
+        witty = "robust"
 
     app.attractionMessage = [f"The gravitational attraction between you two is level {gScore}.", 
     f"The electric attraction between you two is level {eScore}.", 

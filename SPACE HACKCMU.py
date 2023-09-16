@@ -193,10 +193,10 @@ def title_onAppStart(app):
     app.selectedChoiceList = []
     app.questionNumber = 0
     app.currentPlayer = 0
-    app.enterPlayerNamesButton = ScreenButton(app, (app.width/2)*(6/8), 12*(app.height/16), app.width/4, (app.height/4)*(3/4), "pink", "names", setActiveScreen, label="Start Love Test!", labelSize=20)
+    app.enterPlayerNamesButton = ScreenButton(app, app.width/4, (app.height/4), app.width/2, app.height/2, "pink", "names", setActiveScreen, label="Start Love Test!", labelSize=50)
     app.nextButton = AppButton(app, app.width*(7/8), 13*app.height/16, app.width/8, app.height/8, "green", nextQ, label="Next Question!", labelSize=20)
-    app.againButton = ScreenButton(app, app.width/4,app.height/4,app.width/2,app.height/2, "pink", "test", setActiveScreen)
-    app.orbitAroundStarQuestionList = ["What is your career/education?","What are your interests/hobbies/frequent activites?","How often do you interact with sports?","How often do you interact with Video Games?","How often do you interact with Cooking?","How often do you engage in Arts/Crafts?","How often do you watch shows?"]
+    app.againButton = ScreenButton(app, app.width/4,app.height/4,app.width/2,app.height/2, "pink", "test", setActiveScreen, label='Click Me!', labelSize=50)
+    app.orbitAroundStarQuestionList = ["What is your career/education?","What are your interests/hobbies/frequent activites?","On a scale of 0-5, how often do you interact with sports?","On a scale of 0-5, how often do you interact with Video Games?","On a scale of 0-5, how often do you interact with Cooking?","On a scale of 0-5, how often do you engage in Arts/Crafts?","On a scale of 0-5, how often do you watch shows?"]
     app.orbitAroundStarAnswerList = [["a. Natural Sciences", "b. Engineering", "c. Humanities", "d. Art/Music/Drama", "e. Computer Science", "f. Business"],["a. Sports","b. Video Games","c. Cooking","d. Arts/Crafts", "e. Watching Shows"],["a. 5","b. 4","c. 3","d. 2","e. 1","f. 0"], ["a. 5","b. 4","c. 3","d. 2","e. 1","f. 0"], ["a. 5","b. 4","c. 3","d. 2","e. 1","f. 0"], ["a. 5","b. 4","c. 3","d. 2","e. 1","f. 0"], ["a. 5","b. 4","c. 3","d. 2","e. 1","f. 0"]]
     app.orbitAroundStarUserAnswerList = []
     app.orbitAroundStarAnswerToValueList = [["a","b","c",'d','e','f'],['a','b','c','d','e'],[5,4,3,2,1,0],[5,4,3,2,1,0],[5,4,3,2,1,0],[5,4,3,2,1,0],[5,4,3,2,1,0]]
@@ -488,26 +488,20 @@ def calculate(app):
         gScore = 1
     elif Fg<(minGForce+2*intervalGForce):  
         gScore = 2
-    elif Fg<maxGForce:  
-        gScore = 3 
     else:
-        gScore = 0
+        gScore = 3
     if Fe<(minEForce+intervalEForce):  
         eScore = 1 
     elif Fe<(minEForce+2*intervalEForce):  
         eScore = 2
-    elif Fe<maxEForce:  
-        eScore = 3
     else:
-        eScore = 0
+        eScore = 3
     if Fn<(minForce+intervalForce):  
         nScore = 1 
     elif Fn<(minForce+2*intervalForce):  
         nScore = 2
-    elif Fn<(maxForce):  
-        nScore = 3 
     else:
-        nScore = 0
+        nScore = 3
 
 
     # gPercentage = ((Fg-minGForce)/(maxGForce-minGForce))*(100**18)
@@ -557,7 +551,6 @@ def calculate(app):
         periodPrediction = "It seems like you two race to see each other!"
 
     app.futurePrediction = [f"{escapePrediction}", f"{periodPrediction}"]
-
 
 def main():
     runAppWithScreens("title")
